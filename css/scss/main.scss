@@ -1,0 +1,112 @@
+@mixin translateX($x) {
+	-webkit-transform: translateX($x);
+	-moz-transform: translateX($x);
+	-ms-transform: translateX($x);
+	transform: translateX($x);
+}
+
+@mixin translateY($y) {
+	-webkit-transform: translateY($y);
+	-moz-transform: translateY($y);
+	-ms-transform: translateY($y);
+	transform: translateY($y);
+}
+
+* {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+html, body {
+	background-color: white;
+	overflow: hidden;
+}
+
+#gradient-canvas {
+	background-color: grey;
+}
+
+.gradient-direction-point {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: white;
+	border: 3px solid black;
+	border-radius: 100%;
+}
+
+#point1.gradient-direction-point {
+	top: 0;
+	left: 50%;
+}
+
+#point2.gradient-direction-point {
+	top: 100%;
+	// bottom: 100px;
+	left: 50%;
+	@include translateY(-100%);
+}
+
+#controls-container {
+	background-color: rgba(50,50,50,0.8);
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	@include translateX(-50%);
+	width: 100%;
+	text-align: center;
+	padding: 20px 0 30px 0;
+	border: 1px solid black;
+}
+
+#controls-container button, #show {
+	background-color: #333;
+	color: white;
+	padding: 0.5em;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+#color-point-slider {
+	font-size: 0.8em;
+	// margin: 1em 0;
+	margin: 1em auto;
+	width: 80%;
+	position: relative;
+}
+
+.ui-slider-handle {
+	border: 1px solid black !important;
+}
+
+#color-choices-container {
+	position: relative;
+	// padding-top: 10px;
+	width: 80%;
+	margin: 1em auto;
+}
+
+.color-choice {
+	// position: relative;
+	width: 30px;
+	height: 20px;
+	position: absolute;
+	// left: 100%;
+	@include translateX(-50%);
+	border: 1px solid black;
+	padding: 0;
+}
+
+#show {
+	position: absolute;
+	bottom: 0;
+	// left: 50%;
+	// @include translateX(-50%);
+	right: 0;
+	border-radius: 0;
+	border-top-left-radius: 5px;
+	// border-bottom-left-radius: 0;
+	// border-bottom-right-radius: 0;
+	display: none;
+}
